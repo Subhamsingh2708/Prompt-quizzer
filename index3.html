@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Array of new quiz questions with questions and answers
+const quizQuestions = [
+    {
+        question: "What is the largest ocean on Earth?",
+        answer: "pacific"
+    },
+    {
+        question: "Who wrote the play 'Romeo and Juliet'?",
+        answer: "shakespeare"
+    },
+    {
+        question: "What is the chemical symbol for water?",
+        answer: "h2o"
+    },
+    {
+        question: "How many continents are there on Earth?",
+        answer: "7"
+    },
+    {
+        question: "Which planet is known as the Red Planet?",
+        answer: "mars"
+    }
+];
+
+// Function to run the entire quiz
+function runQuiz() {
+    let score = 0;  // Initialize score to zero
+    
+    // Loop through each question using a for loop
+    for (let i = 0; i < quizQuestions.length; i++) {
+        const currentQuestion = quizQuestions[i];
+        
+        // Get user input with prompt
+        const userAnswer = prompt(currentQuestion.question);
+        
+        // Normalize input: convert to lowercase and trim spaces
+        const normalizedAnswer = userAnswer ? userAnswer.toLowerCase().trim() : "";
+        
+        // Check if answer is correct using if-else
+        if (normalizedAnswer === currentQuestion.answer) {
+            score++;  // Increment score for correct answer
+            alert("Correct! Great job!");
+        } else {
+            alert(`Wrong! The correct answer is: ${currentQuestion.answer}`);
+        }
+    }
+    
+    // Display final score after loop completes
+    alert(`Quiz complete! Your score: ${score} out of ${quizQuestions.length}`);
+}
+
+// Run the quiz by calling the function
+runQuiz();
+    </script>
+</body>
+</html>
